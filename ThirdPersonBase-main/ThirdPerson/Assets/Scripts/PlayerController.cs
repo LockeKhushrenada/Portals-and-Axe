@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Transform mainCamera;
     [SerializeField]
+    Transform followTransform;
+    [SerializeField]
     BoxCollider swordCollider;
 
     Rigidbody rb;
@@ -19,6 +21,9 @@ public class PlayerController : MonoBehaviour
 
     bool startedCombo = false;
     float timeSinceButtonPressed = 0.0f;
+
+    /*public Vector2 _look;
+    public float rotationPower = 3f;*/
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +65,11 @@ public class PlayerController : MonoBehaviour
         }
 
         timeSinceButtonPressed += Time.deltaTime;
+
+        /*followTransform.transform.rotation *= Quaternion.AngleAxis(_look.y * rotationPower, Vector3.right);
+        var angles = followTransform.localEulerAngles;
+        transform.rotation = Quaternion.EulerAngles(0, followTransform.transform.rotation.eulerAngles.y, 0);
+        followTransform.transform.localEulerAngles = new Vector3(angles.x, 0, 0);*/
     }
 
     public void PotentialComboEnd()
